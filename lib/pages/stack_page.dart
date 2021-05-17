@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:init/methods.dart';
 
-class StackPage extends StatelessWidget {
+class StackPage extends StatefulWidget {
+  @override
+  _StackPageState createState() => _StackPageState();
+}
+
+class _StackPageState extends State<StackPage> {
+  double _widthImg = 80;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,12 +37,22 @@ class StackPage extends StatelessWidget {
               elevation: 14,
               child: Image.asset(
                 'assets/images/2.png',
-                width: 80,
+                width: _widthImg,
                 fit: BoxFit.contain,
               ),
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _widthImg += 20;
+          if (_widthImg >= 300) {
+            _widthImg = 80;
+          }
+          setState(() {});
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

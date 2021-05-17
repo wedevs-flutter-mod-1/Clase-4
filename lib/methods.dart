@@ -1,0 +1,3 @@
+void mostrarImagen(bool value) {
+  
+}
